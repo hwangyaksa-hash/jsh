@@ -1,11 +1,19 @@
-# 네이버 크롤러 허용
+# 검색 엔진 크롤러 최적화
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
-# 네이버봇 User-Agent 허용
+# 크롤러는 ?i=1 리다이렉트 제외
+RewriteCond %{QUERY_STRING} ^i=1$ [NC]
+RewriteCond %{HTTP_USER_AGENT} (Googlebot|NaverBot|Yeti|Daumoa|bingbot|Slurp) [NC]
+RewriteRule ^(.*)$ /$1? [R=301,L]
+
+# 크롤러 User-Agent 허용
+RewriteCond %{HTTP_USER_AGENT} Googlebot [NC,OR]
 RewriteCond %{HTTP_USER_AGENT} Yeti [NC,OR]
-RewriteCond %{HTTP_USER_AGENT} NaverBot [NC]
-RewriteRule .* - [E=NAVER_BOT:1]
+RewriteCond %{HTTP_USER_AGENT} NaverBot [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Daumoa [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} bingbot [NC]
+RewriteRule .* - [E=SEARCH_BOT:1]
 </IfModule>
 
 # CORS 헤더 설정
