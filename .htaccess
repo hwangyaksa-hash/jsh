@@ -1,0 +1,26 @@
+# 네이버 크롤러 허용
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# 네이버봇 User-Agent 허용
+RewriteCond %{HTTP_USER_AGENT} Yeti [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} NaverBot [NC]
+RewriteRule .* - [E=NAVER_BOT:1]
+</IfModule>
+
+# CORS 헤더 설정
+<IfModule mod_headers.c>
+Header set Access-Control-Allow-Origin "*"
+</IfModule>
+
+# 인덱스 파일 설정
+DirectoryIndex index.html
+
+# UTF-8 인코딩
+AddDefaultCharset UTF-8
+
+# 파일 접근 허용
+<FilesMatch "\.(html|htm|xml|txt)$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
