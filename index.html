@@ -568,6 +568,120 @@
             top: 10px;
         }
         
+        /* Portfolio Section */
+        .portfolio {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: var(--white);
+            padding: 100px 0;
+        }
+        
+        .portfolio h2 {
+            color: var(--white);
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .portfolio .section-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 60px;
+        }
+        
+        .portfolio-category {
+            margin-bottom: 70px;
+        }
+        
+        .portfolio-category:last-child {
+            margin-bottom: 0;
+        }
+        
+        .category-title {
+            font-size: 1.8em;
+            color: var(--accent);
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .portfolio-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 30px;
+            padding: 20px 0;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .portfolio-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .portfolio-scroll::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+        
+        .portfolio-scroll::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 10px;
+        }
+        
+        .portfolio-scroll::-webkit-scrollbar-thumb:hover {
+            background: #c99d2e;
+        }
+        
+        .portfolio-item {
+            flex: 0 0 280px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 2px solid rgba(212,175,55,0.2);
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .portfolio-placeholder {
+            width: 100%;
+            height: 380px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.2) 0%, rgba(212,175,55,0.05) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
+            color: rgba(255,255,255,0.5);
+            font-weight: 500;
+        }
+        
+        .portfolio-info {
+            padding: 20px;
+        }
+        
+        .portfolio-info h4 {
+            font-size: 1.3em;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        
+        .portfolio-info p {
+            color: var(--accent);
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+        
         /* Gallery Section */
         .gallery {
             background: var(--light-bg);
@@ -781,6 +895,36 @@
             .gallery-icon {
                 font-size: 3em;
             }
+            
+            .portfolio h2 {
+                font-size: 2em;
+            }
+            
+            .portfolio .section-subtitle {
+                font-size: 1em;
+                margin-bottom: 40px;
+            }
+            
+            .category-title {
+                font-size: 1.4em;
+            }
+            
+            .portfolio-item {
+                flex: 0 0 220px;
+            }
+            
+            .portfolio-item img,
+            .portfolio-placeholder {
+                height: 300px;
+            }
+            
+            .portfolio-info h4 {
+                font-size: 1.1em;
+            }
+            
+            .portfolio-info p {
+                font-size: 0.85em;
+            }
         }
     </style>
     
@@ -832,6 +976,7 @@
             <ul>
                 <li><a href="#about">소개</a></li>
                 <li><a href="#leadership">크루</a></li>
+                <li><a href="#portfolio">작품</a></li>
                 <li><a href="#gallery">작업</a></li>
                 <li><a href="#vision">비전</a></li>
                 <li><a href="#business">사업</a></li>
@@ -930,6 +1075,160 @@
                         <li>크리에이터 프로듀싱</li>
                         <li>플랫폼 운영</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2>정상훈의 작품 세계</h2>
+            <p class="section-subtitle">무대, 스크린, 방송을 넘나드는 다채로운 여정</p>
+            
+            <!-- 공연 -->
+            <div class="portfolio-category">
+                <h3 class="category-title">🎭 MUSICAL & THEATER</h3>
+                <div class="portfolio-scroll">
+                    <div class="portfolio-item">
+                        <img src="images/compressed/poster-doubtfire.jpg" alt="미세스 다웃파이어">
+                        <div class="portfolio-info">
+                            <h4>미세스 다웃파이어</h4>
+                            <p>뮤지컬</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="images/compressed/poster-gentlemans.jpg" alt="젠틀맨스 가이드">
+                        <div class="portfolio-info">
+                            <h4>젠틀맨스 가이드</h4>
+                            <p>뮤지컬</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="images/compressed/poster-swingdays.jpg" alt="스윙 데이즈">
+                        <div class="portfolio-info">
+                            <h4>스윙 데이즈</h4>
+                            <p>뮤지컬</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="images/compressed/poster-gate.jpg" alt="게이트">
+                        <div class="portfolio-info">
+                            <h4>게이트</h4>
+                            <p>뮤지컬</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="images/compressed/poster-dongas.jpg" alt="돈가스">
+                        <div class="portfolio-info">
+                            <h4>돈가스</h4>
+                            <p>뮤지컬</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 영화 -->
+            <div class="portfolio-category">
+                <h3 class="category-title">🎬 FILM</h3>
+                <div class="portfolio-scroll">
+                    <div class="portfolio-item">
+                        <div class="portfolio-placeholder">
+                            <span>영화 작품 1</span>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>영화 제목 1</h4>
+                            <p>주연/조연</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-placeholder">
+                            <span>영화 작품 2</span>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>영화 제목 2</h4>
+                            <p>주연/조연</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-placeholder">
+                            <span>영화 작품 3</span>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>영화 제목 3</h4>
+                            <p>주연/조연</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-placeholder">
+                            <span>영화 작품 4</span>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>영화 제목 4</h4>
+                            <p>주연/조연</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-placeholder">
+                            <span>영화 작품 5</span>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>영화 제목 5</h4>
+                            <p>주연/조연</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 방송 -->
+            <div class="portfolio-category">
+                <h3 class="category-title">📺 TV & BROADCAST</h3>
+                <div class="portfolio-scroll">
+                    <div class="portfolio-item">
+                        <div class="portfolio-placeholder">
+                            <span>방송 프로그램 1</span>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>프로그램명 1</h4>
+                            <p>출연/MC</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-placeholder">
+                            <span>방송 프로그램 2</span>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>프로그램명 2</h4>
+                            <p>출연/MC</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-placeholder">
+                            <span>방송 프로그램 3</span>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>프로그램명 3</h4>
+                            <p>출연/MC</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-placeholder">
+                            <span>방송 프로그램 4</span>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>프로그램명 4</h4>
+                            <p>출연/MC</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-placeholder">
+                            <span>방송 프로그램 5</span>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>프로그램명 5</h4>
+                            <p>출연/MC</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
