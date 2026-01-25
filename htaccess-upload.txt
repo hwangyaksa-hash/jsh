@@ -19,6 +19,28 @@ RewriteRule .* - [E=SEARCH_BOT:1]
 # CORS 헤더 설정
 <IfModule mod_headers.c>
 Header set Access-Control-Allow-Origin "*"
+
+# 캐시 제어 - HTML은 항상 최신 버전
+<FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+</FilesMatch>
+
+# 이미지 파일은 1주일 캐시 (성능 최적화)
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
+    Header set Cache-Control "public, max-age=604800, immutable"
+</FilesMatch>
+
+# CSS/JS 파일은 1일 캐시
+<FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=86400"
+</FilesMatch>
+
+# 폰트 파일은 1개월 캐시
+<FilesMatch "\.(woff|woff2|ttf|eot)$">
+    Header set Cache-Control "public, max-age=2592000, immutable"
+</FilesMatch>
 </IfModule>
 
 # 인덱스 파일 설정
