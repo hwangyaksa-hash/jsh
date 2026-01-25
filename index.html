@@ -257,6 +257,42 @@
             padding-top: 60px;
             border-top: 2px solid var(--accent);
         }
+
+        .about-works-slider {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .about-works-grid {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .about-work-item {
+            flex: 0 0 20%;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .slider-button.left {
+            left: 10px;
+        }
+
+        .slider-button.right {
+            right: 10px;
+        }
         
         .about-works-grid {
             display: grid;
@@ -832,27 +868,35 @@
             <!-- 출연작 포스터 그리드 -->
             <div class="about-works">
                 <h3 style="text-align: center; font-size: 1.8em; margin: 60px 0 30px; color: var(--primary);">함께한 작품들</h3>
-                <div class="about-works-grid">
-                    <div class="about-work-item">
-                        <img src="images/compressed/poster-doubtfire.jpg" alt="미세스 다웃파이어">
-                        <p>미세스 다웃파이어</p>
+                <div class="about-works-slider">
+                    <button class="slider-button left" id="sliderLeft">&lt;</button>
+                    <div class="about-works-grid" id="worksGrid">
+                        <div class="about-work-item">
+                            <img src="images/compressed/poster-doubtfire.jpg" alt="미세스 다웃파이어">
+                            <p>미세스 다웃파이어</p>
+                        </div>
+                        <div class="about-work-item">
+                            <img src="images/compressed/poster-gentlemans.jpg" alt="젠틀맨스 가이드">
+                            <p>젠틀맨스 가이드</p>
+                        </div>
+                        <div class="about-work-item">
+                            <img src="images/compressed/poster-swingdays.jpg" alt="스윙데이즈">
+                            <p>스윙데이즈</p>
+                        </div>
+                        <div class="about-work-item">
+                            <img src="images/compressed/poster-gate.jpg" alt="게이트">
+                            <p>게이트</p>
+                        </div>
+                        <div class="about-work-item">
+                            <img src="images/compressed/poster-dongas.jpg" alt="나는 돈가스가 싫어요">
+                            <p>나는 돈가스가 싫어요</p>
+                        </div>
+                        <div class="about-work-item">
+                            <img src="images/compressed/poster-snl.jpg" alt="SNL">
+                            <p>SNL</p>
+                        </div>
                     </div>
-                    <div class="about-work-item">
-                        <img src="images/compressed/poster-gentlemans.jpg" alt="젠틀맨스 가이드">
-                        <p>젠틀맨스 가이드</p>
-                    </div>
-                    <div class="about-work-item">
-                        <img src="images/compressed/poster-swingdays.jpg" alt="스윙데이즈">
-                        <p>스윙데이즈</p>
-                    </div>
-                    <div class="about-work-item">
-                        <img src="images/compressed/poster-gate.jpg" alt="게이트">
-                        <p>게이트</p>
-                    </div>
-                    <div class="about-work-item">
-                        <img src="images/compressed/poster-dongas.jpg" alt="나는 돈가스가 싫어요">
-                        <p>나는 돈가스가 싫어요</p>
-                    </div>
+                    <button class="slider-button right" id="sliderRight">&gt;</button>
                 </div>
             </div>
         </div>
@@ -1065,6 +1109,22 @@
         
         setInterval(nextSlide, 5000);
         console.log('슬라이드쇼 시작 (5초 간격)');
+
+        // 작품 슬라이더 기능
+        const worksGrid = document.getElementById('worksGrid');
+        const sliderLeft = document.getElementById('sliderLeft');
+        const sliderRight = document.getElementById('sliderRight');
+        let scrollPosition = 0;
+
+        sliderLeft.addEventListener('click', () => {
+            scrollPosition = Math.min(scrollPosition + 100, 0);
+            worksGrid.style.transform = `translateX(${scrollPosition}%)`;
+        });
+
+        sliderRight.addEventListener('click', () => {
+            scrollPosition = Math.max(scrollPosition - 100, -100 * (worksGrid.children.length - 5));
+            worksGrid.style.transform = `translateX(${scrollPosition}%)`;
+        });
     </script>
 </body>
 </html>
