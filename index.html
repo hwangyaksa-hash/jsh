@@ -251,79 +251,6 @@
             transform: scale(1.05);
         }
         
-        /* About Works Grid */
-        .about-works {
-            margin-top: 60px;
-            padding-top: 60px;
-            border-top: 2px solid var(--accent);
-        }
-
-        .about-works-slider {
-            overflow: hidden;
-            position: relative;
-        }
-
-        .about-works-grid {
-            display: flex;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .about-work-item {
-            flex: 0 0 20%;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .slider-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--accent);
-            color: var(--white);
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            z-index: 10;
-        }
-
-        .slider-button.left {
-            left: 10px;
-        }
-
-        .slider-button.right {
-            right: 10px;
-        }
-        
-        .about-works-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 25px;
-            margin-top: 30px;
-        }
-        
-        .about-work-item {
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        
-        .about-work-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .about-work-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-            margin-bottom: 12px;
-        }
-        
-        .about-work-item p {
-            font-size: 0.9em;
-            color: var(--primary);
-            font-weight: 600;
-        }
-        
         .about-text p {
             font-size: 1.1em;
             line-height: 1.8;
@@ -868,11 +795,6 @@
                 gap: 30px;
             }
             
-            .about-works-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-            
             .leader-card {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -1007,41 +929,6 @@
                 <div class="about-text">
                     <p><strong>HANGYEOL ENTERTAINMENT</strong>는 2017년부터 함께해온 콘텐츠 크리에이티브 그룹이에요. 방송, 영화, 뮤지컬 현장에서 직접 부딪히며 배운 것들을 바탕으로 새로운 미디어를 만들어가고 있어요.</p>
                     <p>YouTube를 넘어서, <strong>한결</strong>만의 디지털 방송국을 꿈꿔요. 그냥 채널 하나 운영하는 게 아니라, 진짜 자체 미디어 생태계를 만드는 게 목표예요.</p>
-                </div>
-            </div>
-            
-            <!-- 출연작 포스터 그리드 -->
-            <div class="about-works">
-                <h3 style="text-align: center; font-size: 1.8em; margin: 60px 0 30px; color: var(--primary);">함께한 작품들</h3>
-                <div class="about-works-slider">
-                    <button class="slider-button left" id="sliderLeft">&lt;</button>
-                    <div class="about-works-grid" id="worksGrid">
-                        <div class="about-work-item">
-                            <img src="images/compressed/poster-doubtfire.jpg" alt="미세스 다웃파이어">
-                            <p>미세스 다웃파이어</p>
-                        </div>
-                        <div class="about-work-item">
-                            <img src="images/compressed/poster-gentlemans.jpg" alt="젠틀맨스 가이드">
-                            <p>젠틀맨스 가이드</p>
-                        </div>
-                        <div class="about-work-item">
-                            <img src="images/compressed/poster-swingdays.jpg" alt="스윙데이즈">
-                            <p>스윙데이즈</p>
-                        </div>
-                        <div class="about-work-item">
-                            <img src="images/compressed/poster-gate.jpg" alt="게이트">
-                            <p>게이트</p>
-                        </div>
-                        <div class="about-work-item">
-                            <img src="images/compressed/poster-dongas.jpg" alt="나는 돈가스가 싫어요">
-                            <p>나는 돈가스가 싫어요</p>
-                        </div>
-                        <div class="about-work-item">
-                            <img src="images/compressed/poster-snl.jpg" alt="SNL">
-                            <p>SNL</p>
-                        </div>
-                    </div>
-                    <button class="slider-button right" id="sliderRight">&gt;</button>
                 </div>
             </div>
         </div>
