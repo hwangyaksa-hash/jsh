@@ -1,18 +1,22 @@
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
-# 검색 엔진 크롤러 허용
-User-agent: Googlebot
-Allow: /
-
+# 네이버 봇 특별 허용 (최우선)
 User-agent: Yeti
 Allow: /
+Crawl-delay: 0
 
-User-agent: Daumoa
+# Googlebot
+User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
-User-agent: NaverBot
+# 빙 봇
+User-agent: bingbot
 Allow: /
+Crawl-delay: 1
 
-# Sitemap 위치
+# Sitemap 위치 (최상단에 명시)
 Sitemap: https://hangyeol-entertainment.gt.tc/sitemap.xml
+Sitemap: https://hangyeol-entertainment.gt.tc/sitemap_ko.xml

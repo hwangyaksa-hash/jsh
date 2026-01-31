@@ -4,36 +4,23 @@ RewriteEngine On
 
 # 크롤러는 ?i=1 리다이렉트 제외
 RewriteCond %{QUERY_STRING} ^i=1$ [NC]
-RewriteCond %{HTTP_USER_AGENT} (Googlebot|NaverBot|Yeti|Daumoa|bingbot|Slurp) [NC]
+RewriteCond %{HTTP_USER_AGENT} (Googlebot|Yeti|bingbot|Slurp) [NC]
 RewriteRule ^(.*)$ /$1? [R=301,L]
-
-# 크롤러 User-Agent 허용
-RewriteCond %{HTTP_USER_AGENT} Googlebot [NC,OR]
-RewriteCond %{HTTP_USER_AGENT} Yeti [NC,OR]
-RewriteCond %{HTTP_USER_AGENT} NaverBot [NC,OR]
-RewriteCond %{HTTP_USER_AGENT} Daumoa [NC,OR]
-RewriteCond %{HTTP_USER_AGENT} bingbot [NC]
-RewriteRule .* - [E=SEARCH_BOT:1]
-
-# 네이버 봇 안정성 강화
-Header set X-Content-Type-Options "nosniff"
-Header set X-Frame-Options "SAMEORIGIN"
 </IfModule>
 
-# CORS 헤더 설정
+# CORS 헤더 설정 (필수만)
 <IfModule mod_headers.c>
-Header set Access-Control-Allow-Origin "*"
 
-# 캐시 제어 - HTML은 항상 최신 버전
+# HTML 캐시 제어 - 항상 최신
 <FilesMatch "\.(html|htm)$">
     Header set Cache-Control "no-cache, no-store, must-revalidate"
     Header set Pragma "no-cache"
     Header set Expires 0
 </FilesMatch>
 
-# 이미지 파일은 1주일 캐시 (성능 최적화)
+# 이미지 파일은 1주일 캐시
 <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
-    Header set Cache-Control "public, max-age=604800, immutable"
+    Header set Cache-Control "public, max-age=604800"
 </FilesMatch>
 
 # CSS/JS 파일은 1일 캐시
@@ -43,8 +30,14 @@ Header set Access-Control-Allow-Origin "*"
 
 # 폰트 파일은 1개월 캐시
 <FilesMatch "\.(woff|woff2|ttf|eot)$">
-    Header set Cache-Control "public, max-age=2592000, immutable"
+    Header set Cache-Control "public, max-age=2592000"
 </FilesMatch>
+
+# XML, TXT 파일 캐시 제어
+<FilesMatch "\.(xml|txt)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+</FilesMatch>
+
 </IfModule>
 
 # 인덱스 파일 설정
@@ -53,8 +46,15 @@ DirectoryIndex index.html
 # UTF-8 인코딩
 AddDefaultCharset UTF-8
 
-# 파일 접근 허용
+# 검색 엔진 파일 접근 허용
 <FilesMatch "\.(html|htm|xml|txt)$">
     Order allow,deny
     Allow from all
+</FilesMatch>
+
+# 네이버 확인 파일 접근 허용
+<FilesMatch "^naver[a-f0-9]{32}\.html$">
+    Order allow,deny
+    Allow from all
+    Header set Cache-Control "public, max-age=0"
 </FilesMatch>
