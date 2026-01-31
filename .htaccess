@@ -14,6 +14,10 @@ RewriteCond %{HTTP_USER_AGENT} NaverBot [NC,OR]
 RewriteCond %{HTTP_USER_AGENT} Daumoa [NC,OR]
 RewriteCond %{HTTP_USER_AGENT} bingbot [NC]
 RewriteRule .* - [E=SEARCH_BOT:1]
+
+# 네이버 봇 안정성 강화
+Header set X-Content-Type-Options "nosniff"
+Header set X-Frame-Options "SAMEORIGIN"
 </IfModule>
 
 # CORS 헤더 설정
